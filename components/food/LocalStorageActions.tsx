@@ -11,7 +11,7 @@ export default function LocalStorageActions() {
         
         localStorage.setItem("cartOfFoodDelivery", JSON.stringify(cart));
         
-    }, [cart]);
+    }, [cart])
 
     return <></>
 }

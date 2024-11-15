@@ -7,9 +7,7 @@ import removeIconRed from "@/public/remove_icon_red.png"
 import { useAppDispatch, useAppSelector } from "@/lib/hooks"
 import { add, remove } from "@/lib/features/cart/cartSlice"
 import { RootState } from "@/lib/store"
-import dynamic from 'next/dynamic'
-
-const LocalStorageActions = dynamic(() => import('./LocalStorageActions'), { ssr: false })
+import LocalStorageActions from "./LocalStorageActions"
 
 
 export default function AddToCartButton({ foodName }: { foodName: string }) {
