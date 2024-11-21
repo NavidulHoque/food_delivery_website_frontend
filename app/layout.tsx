@@ -3,6 +3,7 @@ import { Outfit } from 'next/font/google';
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import StoreProvider from "./StoreProvider";
+import ReduxInitializer from "./ReduxInitializer";
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -29,9 +30,15 @@ export default function RootLayout({
           <Navbar />
 
           <StoreProvider>
-            {children}
+
+            <ReduxInitializer>
+              
+              {children}
+
+            </ReduxInitializer>
+            
           </StoreProvider>
-          
+
         </main>
       </body>
     </html>

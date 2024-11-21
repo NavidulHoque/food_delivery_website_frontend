@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction  } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, current  } from "@reduxjs/toolkit";
 
 interface Cart {
     cart: { [key: string]: number }
@@ -22,6 +22,8 @@ const cartSlice = createSlice({
             const item = action.payload;
 
             state.cart[item] = (state.cart[item] || 0) + 1;
+
+            localStorage.setItem("cartOfFoodDelivery", JSON.stringify(current(state.cart)));
         },
 
         remove: (state, action: PayloadAction<string>) => {
@@ -33,6 +35,8 @@ const cartSlice = createSlice({
             if (state.cart[item] === 0) {
                 delete state.cart[item]
             }
+
+            localStorage.setItem("cartOfFoodDelivery", JSON.stringify(current(state.cart)));
         }
     }
 })

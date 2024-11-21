@@ -7,7 +7,6 @@ import removeIconRed from "@/public/remove_icon_red.png"
 import { useAppDispatch, useAppSelector } from "@/lib/hooks"
 import { add, remove } from "@/lib/features/cart/cartSlice"
 import { RootState } from "@/lib/store"
-import LocalStorageActions from "./LocalStorageActions"
 
 
 export default function AddToCartButton({ foodName }: { foodName: string }) {
@@ -18,7 +17,6 @@ export default function AddToCartButton({ foodName }: { foodName: string }) {
     return (
 
         <>
-            <LocalStorageActions />
             {cart[foodName] ? (
                 <div className="bg-white flex gap-x-3 px-3 py-2 rounded-full absolute bottom-1/2 right-[10px]" >
 
