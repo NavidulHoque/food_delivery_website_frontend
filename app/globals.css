@@ -12,6 +12,10 @@
     @apply font-bold text-[36px] leading-10;
   }
 
+  .text-36-semibold{
+    @apply font-semibold text-[36px] leading-10;
+  }
+
   .text-36-medium{
     @apply font-medium text-[36px] leading-10;
   }

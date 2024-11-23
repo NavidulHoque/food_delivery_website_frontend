@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from 'next/font/google';
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import StoreProvider from "./StoreProvider";
-import ReduxInitializer from "./ReduxInitializer";
+
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -25,22 +23,9 @@ export default function RootLayout({
       <body
         className={`${outfit.className} antialiased`}
       >
-        <main className="w-[80vw] mx-auto text-lg md:text-xl lg:text-2xl">
-
-          <Navbar />
-
-          <StoreProvider>
-
-            <ReduxInitializer>
-              
-              {children}
-
-            </ReduxInitializer>
-            
-          </StoreProvider>
-
-        </main>
+        {children}
       </body>
+
     </html>
   );
 }
