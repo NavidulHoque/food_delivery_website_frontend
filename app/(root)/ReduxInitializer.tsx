@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 
 import { retrieve } from "@/lib/features/cart/cartSlice"
@@ -16,7 +17,7 @@ export default function ReduxInitializer({children}: Readonly<{children: React.R
       dispatch(retrieve(JSON.parse(cartFromLocalStorage)));
     }
     
-  }, [dispatch])
+  }, [])
   
   return children
 }
