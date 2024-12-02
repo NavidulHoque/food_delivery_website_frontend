@@ -12,7 +12,7 @@ export async function logout() {
 }
 
 
-// export async function credentialLogin({email, password}: {email: string, password: string}) {
+export async function credentialLogin({email, password}: {email: string, password: string}) {
 
-//   await signIn("credentials", {email, password, redirect: false})
-// }
+  await signIn("credentials", {email, password, redirect: false})
+}

@@ -3,7 +3,7 @@
 import { navbarList, Item } from "@/data/navbarList";
 import { FaCartShopping } from "react-icons/fa6";
 import { useState } from "react";
-import { IoIosSearch } from "react-icons/io";
+import Link from "next/link";
 
 export default function Navbar() {
 
@@ -33,8 +33,6 @@ export default function Navbar() {
 
       <div className="flex-center gap-x-6">
 
-        <IoIosSearch className="text-[30px] cursor-pointer" />
-
         <div className="relative">
 
           <FaCartShopping className="text-[30px] cursor-pointer" />
@@ -43,11 +41,12 @@ export default function Navbar() {
 
         </div>
 
-        <button
-          className="text-[20px] border-[1px] border-tomato py-3 px-5 rounded-full hover:bg-[#fff4f2] transition duration-300"
+        <Link
+            className="text-[20px] border-[1px] border-tomato py-3 px-5 rounded-full hover:bg-[#fff4f2] transition duration-300"
+            href="/login"
         >
-          Sign In
-        </button>
+            Sign In
+        </Link>
 
       </div>
 
