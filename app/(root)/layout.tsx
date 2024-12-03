@@ -9,11 +9,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
             <section className="w-[80vw] mx-auto">
 
-                <Navbar />
-
                 <StoreProvider>
 
                     <ReduxInitializer>
+
+                        <Navbar />
 
                         {children}
 

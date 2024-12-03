@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction, current  } from "@reduxjs/toolkit";
 
 interface Cart {
-    cart: { [key: string]: number }
+    cart: { [key: string]: number };
+    loading: boolean;
 }
 
 const initialState: Cart = {
-    cart: {} 
+    cart: {},
+    loading: true
 }
 
 const cartSlice = createSlice({
@@ -15,6 +17,7 @@ const cartSlice = createSlice({
 
         retrieve: (state, action: PayloadAction<{ [key: string]: number }>) => {
             state.cart = action.payload
+            state.loading = false
         },
 
         add: (state, action: PayloadAction<string>) => {
@@ -30,7 +33,7 @@ const cartSlice = createSlice({
 
             const item = action.payload;
 
-            state.cart[item] = (state.cart[item] || 0) - 1;
+            state.cart[item] = state.cart[item] - 1;
 
             if (state.cart[item] === 0) {
                 delete state.cart[item]

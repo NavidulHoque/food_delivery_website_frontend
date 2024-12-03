@@ -1,12 +1,13 @@
 "use client"
 
-import { foodList, Food } from "@/data/foodList";
-import FoodItem from "./FoodItem";
 import useCategory from "@/hooks/useCategory";
+import FoodItem from "./FoodItem";
+import { Food, foodList } from "@/data/foodList";
+
 
 export default function FoodDisplay() {
 
-  const {category, setCategory} = useCategory()
+  const { category, setCategory } = useCategory()
 
   const filteredFoodList = foodList.filter(food => food.category.includes(category))
 

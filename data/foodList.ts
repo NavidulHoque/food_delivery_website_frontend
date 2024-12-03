@@ -43,7 +43,7 @@ export interface Food {
 }
 
 
-export const foodList = [
+export const foodList: Food[] = [
     {
         id: "1",
         name: "Greek salad",
