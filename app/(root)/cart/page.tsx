@@ -2,7 +2,6 @@
 
 import ShadTable from "@/components/cart/ShadTable"
 import ShowCartEmpty from "@/components/cart/ShowCartEmpty"
-
 import { Food, foodList } from "@/data/foodList"
 import { useAppSelector } from "@/lib/hooks"
 import Loader from "@/components/common/Loader"
@@ -32,9 +31,17 @@ export default function Cart() {
   )
 
   return (
-    <section className={`min-h-[82vh] py-5 ${isCartEmpty ? "flex-center" : ""}`}>
+    <section className={`min-h-[82vh] py-5 ${isCartEmpty || loading ? "flex-center" : ""}`}>
 
       {showCart}
+
+      <div className="grid grid-cols-2">
+
+        <div>
+
+        </div>
+
+      </div>
 
     </section>
   )
