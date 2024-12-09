@@ -80,7 +80,7 @@ export default function Cart() {
 
               </div>
 
-              <Link href="/placeOrder" className="bg-tomato text-white p-4 inline-block rounded-md ">PROCEED TO CHECKOUT</Link>
+              <Link href="/placeOrder" className="bg-tomato hover:bg-tomato/90 text-white px-4 py-3 inline-block rounded-md ">Place Order</Link>
 
             </div>
 
