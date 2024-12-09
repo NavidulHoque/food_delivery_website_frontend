@@ -8,6 +8,10 @@
     @apply font-medium text-[20px];
   }
 
+  .text-28-semibold{
+    @apply font-semibold text-[28px];
+  }
+
   .text-36-bold{
     @apply font-bold text-[36px] leading-10;
   }

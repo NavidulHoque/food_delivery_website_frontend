@@ -1,6 +1,8 @@
+
+
 export default function PlaceOrder() {
   return (
-    <section>
+    <section className="h-[82vh]">
       
     </section>
   )
