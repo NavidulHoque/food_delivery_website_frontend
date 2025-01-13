@@ -1,10 +1,9 @@
 import { X } from 'lucide-react'
-import { useAppDispatch } from '@/lib/hooks'
-import { removeFrontend } from '@/lib/features/cart/cartSlice'
+import useCart from '@/hooks/useCart'
 
 export default function Remove({ foodName }: { foodName: string }) {
 
-    const dispatch = useAppDispatch()
+    const { removeFromCart } = useCart()
 
-    return <X onClick={() => dispatch(removeFrontend(foodName))} className='cursor-pointer' />
+    return <X onClick={() => removeFromCart(foodName)} className='cursor-pointer' />
 }

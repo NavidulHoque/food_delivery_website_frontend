@@ -1,7 +1,6 @@
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
-import StoreProvider from "./StoreProvider";
-import ReduxInitializer from "./ReduxInitializer";
+import CartProvider from "@/context/CartProvider";
 
 export interface User {
     email: string;
@@ -18,17 +17,13 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 
             <section className="w-[80vw] mx-auto">
 
-                <StoreProvider>
+                <CartProvider>
 
-                    <ReduxInitializer>
+                    <Navbar />
 
-                        <Navbar />
+                    {children}
 
-                        {children}
-
-                    </ReduxInitializer>
-
-                </StoreProvider>
+                </CartProvider>
 
             </section>
 

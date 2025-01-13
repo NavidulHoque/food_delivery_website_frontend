@@ -4,28 +4,16 @@ import Image from "next/image"
 import addIconWhite from "@/public/add_icon_white.png"
 import addIconGreen from "@/public/add_icon_green.png"
 import removeIconRed from "@/public/remove_icon_red.png"
-import { useAppDispatch, useAppSelector } from "@/lib/hooks"
-import { addFrontend, removeFrontend } from "@/lib/features/cart/cartSlice"
-import UpdateUserSession from "../common/UpdateUserSession"
-import UpdateCartBackend from "../common/UpdateCartBackend"
+import useCart from "@/hooks/useCart"
+import { useSession } from "next-auth/react"
 
 
-export default function AddToCartButton({ foodName }: { foodName: string }) {
+export default function AddToCartButton({ foodName }: { foodName: string}) {
 
-    const { cart } = useAppSelector(state => state.cart)
-    const dispatch = useAppDispatch()
+    const { cart, addToCart, removeFromCart } = useCart()
+    const { status } = useSession()
 
-    const remove = async () => {
-
-        dispatch(removeFrontend(foodName))
-    }
-
-    const add = async () => {
-
-        dispatch(addFrontend(foodName))
-    }
-
-    const showQuantity = cart[foodName] ? (
+    const showQuantity = (cart[foodName] && status === "authenticated") ? (
 
         <div className="bg-white flex gap-x-3 px-3 py-2 rounded-full absolute bottom-1/2 right-[10px]">
 
@@ -34,7 +22,7 @@ export default function AddToCartButton({ foodName }: { foodName: string }) {
                 alt="icon"
                 quality={100}
                 className="cursor-pointer"
-                onClick={remove}
+                onClick={() => removeFromCart(foodName)}
             />
 
             <span>{cart[foodName]}</span>
@@ -44,7 +32,7 @@ export default function AddToCartButton({ foodName }: { foodName: string }) {
                 alt="icon"
                 quality={100}
                 className="cursor-pointer"
-                onClick={add}
+                onClick={() => addToCart(foodName)}
             />
 
         </div>
@@ -55,15 +43,9 @@ export default function AddToCartButton({ foodName }: { foodName: string }) {
             alt="icon"
             quality={100}
             className="absolute bottom-1/2 right-[10px] cursor-pointer"
-            onClick={add}
+            onClick={() => addToCart(foodName)}
         />
     )
 
-    return (
-        <>
-            <UpdateCartBackend cart={cart} />
-            <UpdateUserSession cart={cart} />
-            {showQuantity}
-        </>
-    )
+    return showQuantity
 }

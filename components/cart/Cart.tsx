@@ -5,13 +5,11 @@ import ShowCartEmpty from "@/components/cart/ShowCartEmpty"
 import { subTotalPrice } from "@/lib/utils"
 import Link from "next/link"
 import { Food } from "@/components/food/FoodDisplayServer";
-import { useAppSelector } from "@/lib/hooks"
-import UpdateUserSession from "../common/UpdateUserSession"
-import UpdateCartBackend from "../common/UpdateCartBackend"
+import useCart from "@/hooks/useCart"
 
-export default function Cart({ foods }: { foods: Food[] }) {
+export default function Cart({ foods }: { foods: Food[]}) {
 
-    const { cart } = useAppSelector(state => state.cart)
+    const { cart } = useCart()
 
     const cartArray = Object.keys(cart)
 
@@ -22,73 +20,68 @@ export default function Cart({ foods }: { foods: Food[] }) {
     const subTotal = !isCartEmpty && subTotalPrice(cart, cartFoodList as Food[])
 
     return (
-        <>
-            <UpdateCartBackend cart={cart} />
-            <UpdateUserSession cart={cart} />
+        <section className={`min-h-[82vh] py-5 ${isCartEmpty ? "flex-center" : ""}`}>
 
-            <section className={`min-h-[82vh] py-5 ${isCartEmpty ? "flex-center" : ""}`}>
+            {isCartEmpty ? (
 
-                {isCartEmpty ? (
+                <ShowCartEmpty />
 
-                    <ShowCartEmpty />
+            ) : (
 
-                ) : (
+                <>
+                    <ShadTable cartFoodList={cartFoodList as Food[]} cart={cart} />
 
-                    <>
-                        <ShadTable cartFoodList={cartFoodList as Food[]} cart={cart} />
+                    <div className="flex mt-20">
 
-                        <div className="flex mt-20">
+                        <div className="w-[50%] space-y-5">
 
-                            <div className="w-[50%] space-y-5">
+                            <h1 className="text-28-semibold">Cart Totals</h1>
 
-                                <h1 className="text-28-semibold">Cart Totals</h1>
+                            <div className="flex-column gap-y-2">
 
-                                <div className="flex-column gap-y-2">
+                                <div className="flex-between">
 
-                                    <div className="flex-between">
-
-                                        <span className="">Subtotal</span>
-                                        <span>${subTotal}</span>
-
-                                    </div>
-
-                                    <hr />
+                                    <span className="">Subtotal</span>
+                                    <span>${subTotal}</span>
 
                                 </div>
 
-                                <div className="flex-column gap-y-2">
-
-                                    <div className="flex-between">
-
-                                        <span>Delivery fee</span>
-                                        <span>$2</span>
-
-                                    </div>
-
-                                    <hr />
-
-                                </div>
-
-                                <div className="flex-column">
-
-                                    <div className="flex-between">
-
-                                        <span className="font-medium">Total</span>
-                                        <span>${subTotal as number + 2}</span>
-
-                                    </div>
-
-                                </div>
-
-                                <Link href="/placeOrder" className="bg-tomato hover:bg-tomato/90 text-white px-4 py-3 inline-block rounded-md ">Place Order</Link>
+                                <hr />
 
                             </div>
 
-                        </div>
-                    </>
-                )}
+                            <div className="flex-column gap-y-2">
 
-            </section>
-        </>
+                                <div className="flex-between">
+
+                                    <span>Delivery fee</span>
+                                    <span>$2</span>
+
+                                </div>
+
+                                <hr />
+
+                            </div>
+
+                            <div className="flex-column">
+
+                                <div className="flex-between">
+
+                                    <span className="font-medium">Total</span>
+                                    <span>${subTotal as number + 2}</span>
+
+                                </div>
+
+                            </div>
+
+                            <Link href="/placeOrder" className="bg-tomato hover:bg-tomato/90 text-white px-4 py-3 inline-block rounded-md ">Place Order</Link>
+
+                        </div>
+
+                    </div>
+                </>
+            )}
+
+        </section>
     )
 }

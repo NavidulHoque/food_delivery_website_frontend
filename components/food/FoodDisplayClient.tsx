@@ -4,7 +4,7 @@ import useCategory from "@/hooks/useCategory";
 import { Food } from "./FoodDisplayServer";
 import FoodItem from "./FoodItem";
 
-export default function FoodDisplayClient({ foods }: { foods: Food[] }) {
+export default function FoodDisplayClient({ foods }: { foods: Food[]}) {
 
     const { category, setCategory } = useCategory()
 

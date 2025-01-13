@@ -11,11 +11,11 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: "Food Delivery Website",
+  title: "Home",
   description: "Order your food from this web app",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body

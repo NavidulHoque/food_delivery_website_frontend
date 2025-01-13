@@ -10,7 +10,7 @@ import AddToCartButton from './AddToCartButton'
 import { Food } from "./FoodDisplayServer"
 
 
-export default function FoodItem({ food }: { food: Food }) {
+export default function FoodItem({ food }: { food: Food}) {
   return (
     <Card className='border-none border-[0px] shadow-[0_0_10px_#00000015] hover-scale relative'>
 

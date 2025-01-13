@@ -5,6 +5,7 @@ import Hero from "@/components/hero/Hero";
 import CategoryProvider from "@/context/CategoryProvider";
 
 export default async function Home() {
+
   return (
     <section className="flex-column gap-y-10">
 

@@ -77,7 +77,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             }
         },
 
-        async jwt({ token, account, user, trigger, session }) {
+        async jwt({ token, account, user, trigger }) {
 
             if (trigger === "signIn" || trigger === "signUp") { // Account and user is available during sign-in
                 token.provider = account?.provider
@@ -85,13 +85,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 token.trigger = "signIn"
             }
 
-            else if (trigger === "update") {
-                // session contains the updated data sent from client
-                // You can update the token here
+            // else if (trigger === "update") {
+            //     // session contains the updated data sent from client
+            //     // You can update the token here
 
-                token.user = session.user
-                token.trigger = "update"
-            }
+            //     token.user = session
+            //     token.trigger = "update"
+            // }
 
             return token
         },
@@ -99,7 +99,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         async session({ session, token }) {
 
 
-            if (token.provider !== "credentials" && token.trigger === "signIn") {
+            if (token.provider !== "credentials") {
 
                 const response = await axios.post(url + "/user/read", { email: token.email, provider: token.provider })
 

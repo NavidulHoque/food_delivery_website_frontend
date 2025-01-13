@@ -1,11 +1,10 @@
 "use client"
 
-import { useAppSelector } from "@/lib/hooks";
-
+import useCart from "@/hooks/useCart"
 
 export default function ShoppingCart() {
 
-    const cart = useAppSelector(state => state.cart.cart)
+    const {cart} = useCart()
 
     return (
 
