@@ -98,7 +98,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         async session({ session, token }) {
 
-
             if (token.provider !== "credentials") {
 
                 const response = await axios.post(url + "/user/read", { email: token.email, provider: token.provider })
@@ -111,6 +110,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             }
 
             return session
+        },
+
+        authorized: async ({ auth }) => {
+            // Logged in users are authenticated, otherwise redirect to login page
+            return !!auth
         },
     },
 

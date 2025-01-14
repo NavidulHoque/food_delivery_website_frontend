@@ -6,12 +6,15 @@ import addIconGreen from "@/public/add_icon_green.png"
 import removeIconRed from "@/public/remove_icon_red.png"
 import useCart from "@/hooks/useCart"
 import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
+
 
 
 export default function AddToCartButton({ foodName }: { foodName: string}) {
 
     const { cart, addToCart, removeFromCart } = useCart()
     const { status } = useSession()
+    const router = useRouter()
 
     const showQuantity = (cart[foodName] && status === "authenticated") ? (
 
@@ -43,7 +46,7 @@ export default function AddToCartButton({ foodName }: { foodName: string}) {
             alt="icon"
             quality={100}
             className="absolute bottom-1/2 right-[10px] cursor-pointer"
-            onClick={() => addToCart(foodName)}
+            onClick={() => status === "authenticated" ? addToCart(foodName) : router.push("/login")}
         />
     )
 

@@ -3,9 +3,9 @@
 import { url } from "@/url"
 import axios from "axios"
 
-export const getCart = async ({email, provider}: {email: string, provider: string}) => {
+export const getCart = async ({id}: {id: string}) => {
 
-    const response = await axios.post(url + '/cart/get', {email, provider})
+    const response = await axios.get(url + `/cart/get/${id}`)
 
     return response.data.cart
 }

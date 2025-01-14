@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 
-import { updateCartBackend } from "@/app/(root)/actions/cart";
+import { getCart, updateCartBackend } from "@/app/(root)/actions/cart";
 import { User } from "@/app/(root)/layout";
 import { useSession } from "next-auth/react";
 import { createContext, useState, Dispatch, SetStateAction, useEffect } from "react";
@@ -22,17 +22,24 @@ export default function CartProvider({ children }: { children: React.ReactNode }
     const { data, status } = useSession()
     const { toast } = useToast()
 
-    console.log("cart", cart)
-    console.log("data", data)
+    // console.log("cart", cart)
+    // console.log("data", data)
     // console.log("status", status)
 
     useEffect(() => {
 
         if (status === "authenticated") {
-            setCart(data?.user?.cart as { [key: string]: number })
+            fetchCart()
         }
 
     }, [status])
+
+
+    async function fetchCart() {
+
+        const cart = await getCart(data?.user as User)
+        setCart(cart)
+    }
 
 
     const updateBackendAndSession = async (cart: { [key: string]: number }) => {
@@ -62,7 +69,6 @@ export default function CartProvider({ children }: { children: React.ReactNode }
         }
 
         else {
-            //console.log(cart)
             const localCart = { ...cart }
 
             localCart[food] = (localCart[food] || 0) + 1

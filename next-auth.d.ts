@@ -4,6 +4,7 @@ import { JWT } from "next-auth/jwt";
 
 declare module "next-auth" {
   interface User {
+    id: string;
     username: string | null;
     provider?: string | null;
     email?: string | null;

@@ -3,6 +3,7 @@ import Navbar from "@/components/navbar/Navbar";
 import CartProvider from "@/context/CartProvider";
 
 export interface User {
+    id: string;
     email: string;
     username: string;
     photo: string;

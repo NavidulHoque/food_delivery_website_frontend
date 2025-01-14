@@ -5,15 +5,19 @@ import { useState } from "react"
 import { BsBag } from "react-icons/bs";
 import logoutIcon from "@/public/logout_icon.png"
 import { logout } from "@/app/(authentication)/actions/auth";
-import { useFormStatus } from "react-dom";
-import Form from "next/form";
+import useCart from "@/hooks/useCart";
 
 export default function Profile({ children }: Readonly<{ children: React.ReactNode }>) {
 
   const [isHovered, setIsHovered] = useState(false)
-  const { pending } = useFormStatus()
+  const [loading, setLoading] = useState(false)
+  const {setCart} = useCart()
 
-  console.log(pending)
+  const handleLogout = async () => {
+    setLoading(true)
+    setCart({})
+    await logout()
+  }
 
   return (
     <div
@@ -37,20 +41,16 @@ export default function Profile({ children }: Readonly<{ children: React.ReactNo
 
           <hr className="border-0 h-[1px] bg-slate-400" />
 
-          <Form action={logout}>
+          <button
+            className={`flex-column items-center gap-x-2 cursor-pointer ${loading ? "opacity-80" : ""}`}
+            onClick={handleLogout}
+            disabled={loading}
+          >
+            <Image src={logoutIcon} alt="logout" />
 
-            <button
-              className={`flex-column items-center gap-x-2 cursor-pointer ${pending ? "opacity-80" : ""}`}
-              type="submit"
-              disabled={pending}
-            >
-              <Image src={logoutIcon} alt="logout" />
+            <span className="text-lg">LogOut</span>
 
-              <span className="text-lg">LogOut</span>
-
-            </button>
-
-          </Form>
+          </button>
 
         </div>
       )}
