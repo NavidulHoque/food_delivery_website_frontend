@@ -1,7 +1,6 @@
-import axios from "axios";
-import { url } from "@/url";
 import RealTimeCommunication from "./RealTimeCommunication";
 import FoodDisplayClient from "./FoodDisplayClient";
+import { fetchFoods } from "@/app/(root)/actions/foods";
 
 export interface Food {
   _id: string;
@@ -10,12 +9,13 @@ export interface Food {
   price: number;
   description: string;
   category: string;
+  quantity?: string; // Optional property
 }
 
 
 export default async function FoodDisplayServer() {
 
-  const { data: { foods } } = await axios.get(url + "/food/readFoods")
+  const foods = await fetchFoods()
 
   return (
     <>

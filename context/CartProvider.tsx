@@ -9,6 +9,9 @@ import { useToast } from "@/hooks/use-toast"
 
 export interface CartContextType {
     cart: { [key: string]: number };
+    cartStringArray: string[];
+    isCartEmpty: boolean;
+    loading: boolean;
     setCart: Dispatch<SetStateAction<{ [key: string]: number }>>;
     addToCart: (food: string) => Promise<void>;
     removeFromCart: (food: string) => Promise<void>;
@@ -19,12 +22,37 @@ export const CartContext = createContext<CartContextType>({} as CartContextType)
 export default function CartProvider({ children }: { children: React.ReactNode }) {
 
     const [cart, setCart] = useState<{ [key: string]: number }>({})
+    const [cartStringArray, setCartStringArray] = useState<string[]>([])
+    const [isCartEmpty, setIsCartEmpty] = useState<boolean>(true)
+    const [loading, setLoading] = useState<boolean>(true)
     const { data, status } = useSession()
     const { toast } = useToast()
 
     // console.log("cart", cart)
     // console.log("data", data)
     // console.log("status", status)
+    
+
+    useEffect(() => {
+
+        setCartStringArray(Object.keys(cart))
+
+    }, [cart])
+
+
+    useEffect(() => {
+
+        if (cartStringArray.length === 0) {
+            setIsCartEmpty(true)
+        }
+
+        else{
+            setIsCartEmpty(false)
+        }
+      
+    }, [cartStringArray])
+    
+
 
     useEffect(() => {
 
@@ -39,6 +67,7 @@ export default function CartProvider({ children }: { children: React.ReactNode }
 
         const cart = await getCart(data?.user as User)
         setCart(cart)
+        setLoading(false)
     }
 
 
@@ -97,7 +126,7 @@ export default function CartProvider({ children }: { children: React.ReactNode }
 
 
     return (
-        <CartContext.Provider value={{ cart, setCart, addToCart, removeFromCart }}>
+        <CartContext.Provider value={{ cart, cartStringArray, isCartEmpty, loading, setCart, addToCart, removeFromCart }}>
             {children}
         </CartContext.Provider>
     )

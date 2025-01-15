@@ -1,14 +1,11 @@
-import ShadForm from "@/components/placeOrder/ShadForm";
+import PlaceOrder from "@/components/placeOrder/PlaceOrder";
+import { fetchFoods } from "../actions/foods";
 
+export default async function PlaceOrderPage() {
 
-export default function PlaceOrder() {
+  const foods = await fetchFoods()
+
   return (
-    <section className="h-[82vh] py-5">
-
-      <h1 className="text-36-medium mb-4">Delivery Information</h1>
-
-      <ShadForm />
-      
-    </section>
+    <PlaceOrder foods={foods} />
   )
 }

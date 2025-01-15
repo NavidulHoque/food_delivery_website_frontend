@@ -1,11 +1,10 @@
-import { url } from "@/url";
-import axios from "axios";
 import Cart from '@/components/cart/Cart';
+import { fetchFoods } from '../actions/foods';
 
 
 export default async function CartPage() {
 
-  const { data: { foods } } = await axios.get(url + "/food/readFoods")
+  const foods = await fetchFoods()
 
   return (
     <Cart foods={foods} />

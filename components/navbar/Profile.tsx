@@ -6,6 +6,7 @@ import { BsBag } from "react-icons/bs";
 import logoutIcon from "@/public/logout_icon.png"
 import { logout } from "@/app/(authentication)/actions/auth";
 import useCart from "@/hooks/useCart";
+import Link from "next/link";
 
 export default function Profile({ children }: Readonly<{ children: React.ReactNode }>) {
 
@@ -14,6 +15,7 @@ export default function Profile({ children }: Readonly<{ children: React.ReactNo
   const {setCart} = useCart()
 
   const handleLogout = async () => {
+
     setLoading(true)
     setCart({})
     await logout()
@@ -29,15 +31,15 @@ export default function Profile({ children }: Readonly<{ children: React.ReactNo
       {children}
 
       {isHovered && (
-        <div className="absolute top-8 left-[-10px] z-10 flex-column gap-y-2 bg-[#fff2ef] border-[1px] border-tomato rounded-md p-4">
+        <div className="absolute top-8 left-[-10px] z-10 flex-column gap-y-2 bg-[#fff2ef] w-[120px] border-[1px] border-tomato rounded-md py-3 px-4">
 
-          <div className="flex-column items-center gap-x-2 cursor-pointer">
+          <Link href="/myOrders" className="flex-column items-center gap-x-2 cursor-pointer">
 
             <BsBag className="text-tomato" />
 
-            <span className="text-lg">Orders</span>
+            <span className="text-lg">My Orders</span>
 
-          </div>
+          </Link>
 
           <hr className="border-0 h-[1px] bg-slate-400" />
 
@@ -48,7 +50,7 @@ export default function Profile({ children }: Readonly<{ children: React.ReactNo
           >
             <Image src={logoutIcon} alt="logout" />
 
-            <span className="text-lg">LogOut</span>
+            <span className="text-lg">Log Out</span>
 
           </button>
 
