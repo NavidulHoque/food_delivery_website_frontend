@@ -10,7 +10,8 @@ export const getCart = async ({id}: {id: string}) => {
     return response.data.cart
 }
 
-export const updateCartBackend = async ({email, provider}: {email: string, provider: string}, cart: { [key: string]: number}) => {
+export const updateCartBackend = async (id: string, cart: { [key: string]: number}) => {
 
-    await axios.put(url + '/cart/update', {email, provider, cart})
+    await axios.put(url + `/cart/update/${id}`, {cart})
+    return
 }

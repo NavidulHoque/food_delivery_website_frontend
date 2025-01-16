@@ -3,7 +3,7 @@
 import ShadTable from "@/components/cart/ShadTable"
 import ShowCartEmpty from "@/components/cart/ShowCartEmpty"
 import { subTotalPrice } from "@/lib/utils";
-import { Food } from "@/components/food/FoodDisplayServer";
+import { Food } from "@/lib/type";
 import useCart from "@/hooks/useCart"
 import CashMemo from "./CashMemo"
 import { generateCartFoodList } from "@/lib/utils";

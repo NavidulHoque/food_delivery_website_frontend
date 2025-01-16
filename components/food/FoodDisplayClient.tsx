@@ -1,7 +1,7 @@
 "use client"
 
 import useCategory from "@/hooks/useCategory";
-import { Food } from "./FoodDisplayServer";
+import { Food } from "@/lib/type"; 
 import FoodItem from "./FoodItem";
 
 export default function FoodDisplayClient({ foods }: { foods: Food[]}) {

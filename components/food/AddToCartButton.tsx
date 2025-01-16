@@ -9,7 +9,6 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 
 
-
 export default function AddToCartButton({ foodName }: { foodName: string}) {
 
     const { cart, addToCart, removeFromCart } = useCart()

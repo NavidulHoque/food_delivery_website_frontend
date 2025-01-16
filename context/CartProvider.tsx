@@ -2,7 +2,7 @@
 "use client"
 
 import { getCart, updateCartBackend } from "@/app/(root)/actions/cart";
-import { User } from "@/app/(root)/layout";
+import { User } from "@/lib/type"; 
 import { useSession } from "next-auth/react";
 import { createContext, useState, Dispatch, SetStateAction, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast"
@@ -73,7 +73,7 @@ export default function CartProvider({ children }: { children: React.ReactNode }
 
     const updateBackendAndSession = async (cart: { [key: string]: number }) => {
 
-        await updateCartBackend(data?.user as User, cart)
+        await updateCartBackend(data?.user.id as string, cart)
 
         // const newUserSession = {
         //     email: data?.user.email,

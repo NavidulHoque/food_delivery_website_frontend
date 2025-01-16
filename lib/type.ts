@@ -4,7 +4,8 @@ export interface User {
     username: string;
     photo: string;
     provider: string;
-    cart: { [key: string]: number };
+    cart?: { [key: string]: number };
+    role: string;
 }
 
 export interface OrderObj {

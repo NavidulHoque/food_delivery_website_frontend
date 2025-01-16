@@ -1,4 +1,4 @@
-import { Food } from "../food/FoodDisplayServer"; 
+import { Food } from "@/lib/type";
 import {
     Table,
     TableBody,

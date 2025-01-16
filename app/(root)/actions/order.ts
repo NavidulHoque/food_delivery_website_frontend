@@ -1,6 +1,6 @@
 "use server";
 
-import { Food } from "@/components/food/FoodDisplayServer";
+import { Food } from "@/lib/type"; 
 import { url } from "@/url";
 import axios from "axios";
 import { revalidatePath } from "next/cache"

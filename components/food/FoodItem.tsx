@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import AddToCartButton from './AddToCartButton'
-import { Food } from "./FoodDisplayServer"
+import { Food } from "@/lib/type" 
 
 
 export default function FoodItem({ food }: { food: Food}) {

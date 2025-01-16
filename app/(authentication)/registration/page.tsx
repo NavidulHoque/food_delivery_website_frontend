@@ -62,7 +62,8 @@ export default function Registration() {
         username: values.username,
         email: values.email,
         password: values.password,
-        provider: "credentials"
+        provider: "credentials",
+        role: "user"
       })
 
       console.log(response.data.message)
