@@ -2,19 +2,10 @@ import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import CartProvider from "@/context/CartProvider";
 
-export interface User {
-    id: string;
-    email: string;
-    username: string;
-    photo: string;
-    provider: string;
-    cart: { [key: string]: number };
-}
-
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 
     return (
-        <main className="text-lg md:text-xl lg:text-2xl">
+        <main>
 
             <section className="w-[80vw] mx-auto">
 

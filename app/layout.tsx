@@ -19,7 +19,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang="en">
       <body
-        className={`${outfit.className} antialiased`}
+        className={`${outfit.className} antialiased text-lg md:text-xl`}
       >
         <SessionProviderWrapper>
           {children}

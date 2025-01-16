@@ -43,10 +43,6 @@
   .hover-scale{
     @apply hover:scale-105 transition-all duration-300;
   }
-
-  .order_texts{
-    @apply justify-self-center text-[#454545];
-  }
 }
 
 @keyframes fadeIn {

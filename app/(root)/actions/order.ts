@@ -3,6 +3,7 @@
 import { Food } from "@/components/food/FoodDisplayServer";
 import { url } from "@/url";
 import axios from "axios";
+import { revalidatePath } from "next/cache"
 
 export async function createOrder({
     foodItems,
@@ -32,4 +33,9 @@ export async function createOrder({
     })
     
     return
+}
+
+export async function revalidateMyOrder() {
+
+    revalidatePath("/myOrders")
 }
