@@ -57,13 +57,13 @@ export default function Registration() {
 
     try {
 
-      const response = await registration(values)
+      const data = await registration(values)
 
-      if (response.data.status) {
+      if (data.status) {
 
         toast({
           variant: "success",
-          description: response.data.message
+          description: data.message
         })
 
         form.reset();
@@ -76,7 +76,7 @@ export default function Registration() {
       }
 
       else {
-        throw new Error(response.data.message)
+        throw new Error(data.message)
       }
     }
 

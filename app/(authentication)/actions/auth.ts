@@ -15,7 +15,7 @@ export async function logout() {
 
 export async function registration({username, email, password}: {username: string, email: string, password: string}){
 
-  const response = await axios.post(url + "/auth/registration", {
+  const {data} = await axios.post(url + "/auth/registration", {
     username,
     email,
     password,
@@ -23,6 +23,6 @@ export async function registration({username, email, password}: {username: strin
     role: "user"
   })
 
-  return response
+  return data
 }
 
