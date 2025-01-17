@@ -15,10 +15,9 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
-import axios from "axios"
-import { url } from "@/url"
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast"
+import { registration } from "../actions/auth"
 
 
 const formSchema = z.object({
@@ -58,15 +57,7 @@ export default function Registration() {
 
     try {
 
-      const response = await axios.post(url + "/auth/registration", {
-        username: values.username,
-        email: values.email,
-        password: values.password,
-        provider: "credentials",
-        role: "user"
-      })
-
-      console.log(response.data.message)
+      const response = await registration(values)
 
       if (response.data.status) {
 
