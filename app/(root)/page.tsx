@@ -4,6 +4,8 @@ import FoodDisplayServer from "@/components/food/FoodDisplayServer";
 import Hero from "@/components/hero/Hero";
 import CategoryProvider from "@/context/CategoryProvider";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
 
   return (

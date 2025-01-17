@@ -2,8 +2,10 @@ import { auth } from "@/auth";
 import Order from "@/components/myOrders/Order";
 import { url } from "@/url";
 import axios from "axios";
-import RealTimeCommunicationOrder from "./RealTimeCommunicationOrder";
+import RealTimeCommunicationOrder from "../../../components/myOrders/RealTimeCommunicationOrder";
 import { OrderObj } from "@/lib/type";
+
+export const dynamic = "force-dynamic";
 
 export default async function MyOrders() {
     
