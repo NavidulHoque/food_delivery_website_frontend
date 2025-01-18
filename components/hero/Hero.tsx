@@ -1,25 +1,15 @@
-import Image from "next/image";
-import hero_img from "@/public/hero_img.png"
 import HeroButton from "./HeroButton";
 
 
 export default function Hero() {
   return (
-    <div className="relative w-full h-[600px]">
+    <div className="relative w-full lg:h-[600px] h-[400px] bg-cover bg-center bg-no-repeat rounded-lg" style={{ backgroundImage: 'url("/hero_img.png")'}}>
 
-      <Image
-        src={hero_img}
-        alt="hero"
-        fill
-        quality={100}
-        priority={true}
-      />
+      <div className="absolute top-[150px] sm:left-[80px] left-[40px] min-[1150px]:w-full w-[70%] text-white space-y-6">
 
-      <div className="absolute top-[170px] left-[80px] text-white space-y-6">
+        <h1 className="min-[880px]:text-60-semibold text-36-semibold">Order your <br /> favorite food here</h1>
 
-        <h1 className="text-60-semibold">Order your <br /> favorite food here</h1>
-
-        <p className="pt-[10px]">Choose from a diverse menu featuring a delectable array of dishes crafted with the finest <br /> ingredients and culinary expertise. Our mission is to satisfy your cravings and elevate your <br /> dining experience, one delicious meal at a time.</p>
+        <p className="pt-[10px] lg:block hidden">Choose from a diverse menu featuring a delectable array of dishes crafted with the finest <br /> ingredients and culinary expertise. Our mission is to satisfy your cravings and elevate your <br /> dining experience, one delicious meal at a time.</p>
 
         <HeroButton />
 

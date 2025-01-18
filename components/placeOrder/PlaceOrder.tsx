@@ -134,11 +134,11 @@ export default function PlaceOrder({ foods }: { foods: Food[] }) {
 
       ) : (
 
-        <div className="flex gap-x-20">
+        <div className="flex sm:flex-row flex-col gap-20">
 
           <Form {...form}>
 
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-[47%]">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 sm:w-[47%]">
 
               <h1 className="text-36-medium mb-8">Delivery Information</h1>
 

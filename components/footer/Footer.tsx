@@ -5,13 +5,13 @@ import { FaFacebookSquare } from "react-icons/fa";
 
 export default function Footer() {
     return (
-        <footer className="flex-column w-full h-fit bg-[#374151] text-[#e5e7eb] px-36 py-7 text-[20px] mt-5">
+        <footer className="flex-column w-full h-fit bg-[#374151] text-[#e5e7eb] lg:px-36 px-10 py-7 text-[20px] mt-5">
 
-            <div className="flex">
+            <div className="flex sm:flex-row flex-col gap-y-3">
 
-                <div className="flex-column gap-2 justify-center w-[65%]">
+                <div className="flex-column gap-2 justify-center max-[639px]:items-center sm:w-[65%]">
 
-                    <div className="flex items-center w-full gap-4">
+                    <div className="flex items-center max-[639px]:justify-center w-full gap-4">
 
                         <Image alt="Logo Preview" src="https://tailwind-generator.b-cdn.net/favicon.png" width={80} height={80} />
 
@@ -31,9 +31,9 @@ export default function Footer() {
 
                 </div>
 
-                <div className="grid grid-cols-2 grow justify-self-end">
+                <div className="grid min-[840px]:grid-cols-2 grow justify-self-end text-center sm:text-start">
 
-                    <div className="flex-column gap-y-4">
+                    <div className="min-[840px]:flex-column hidden gap-y-4">
 
                         <h2 className="font-bold uppercase text-[#9ca3af]">Company</h2>
 
@@ -43,7 +43,7 @@ export default function Footer() {
 
                     </div>
 
-                    <div className="flex justify-end gap-16 text-nowrap">
+                    <div className="flex sm:justify-end justify-center min-[840px]:gap-16 text-nowrap">
 
                         <div className="flex flex-col gap-2">
 

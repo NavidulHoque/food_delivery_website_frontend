@@ -7,7 +7,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
     return (
         <main>
 
-            <section className="w-[80vw] mx-auto">
+            <section className="lg:w-[80vw] w-[90vw] mx-auto">
 
                 <CartProvider>
 

@@ -42,9 +42,9 @@ export default function ShadTable({ cartFoodList, cart }: { cartFoodList: Food[]
                             <Image 
                                 src={food.image} 
                                 alt={food.name} 
-                                className='w-20 h-16'
-                                width={200}
-                                height={200} 
+                                className='min-w-20 min-h-16'
+                                width={80}
+                                height={64} 
                             />
 
                         </TableCell>

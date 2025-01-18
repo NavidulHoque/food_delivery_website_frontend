@@ -31,7 +31,7 @@ export default function Profile({ children }: Readonly<{ children: React.ReactNo
       {children}
 
       {isHovered && (
-        <div className="absolute top-8 left-[-10px] z-10 flex-column gap-y-2 bg-[#fff2ef] w-[120px] border-[1px] border-tomato rounded-md py-3 px-4">
+        <div className="absolute top-8 right-[-10px] z-10 flex-column gap-y-2 bg-[#fff2ef] w-[120px] border-[1px] border-tomato rounded-md py-3 px-4">
 
           <Link href="/myOrders" className="flex-column items-center gap-x-2 cursor-pointer">
 

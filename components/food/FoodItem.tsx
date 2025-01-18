@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import {
   Card,
   CardContent,
@@ -8,6 +7,7 @@ import {
 } from "@/components/ui/card"
 import AddToCartButton from './AddToCartButton'
 import { Food } from "@/lib/type" 
+import Image from "next/image"
 
 
 export default function FoodItem({ food }: { food: Food}) {
@@ -16,11 +16,11 @@ export default function FoodItem({ food }: { food: Food}) {
 
       <AddToCartButton foodName={food.name} />
 
-      <img
+      <Image
         src={food.image}
         alt={food.name}
-        className='rounded-t-lg'
-        width={286}
+        className='rounded-t-lg w-full'
+        width={300}
         height={222}
       />
 

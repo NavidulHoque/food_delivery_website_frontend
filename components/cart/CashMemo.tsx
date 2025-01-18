@@ -3,9 +3,9 @@ import Link from "next/link";
 export default function CashMemo({subTotal, isRedirect}: {subTotal: number, isRedirect: boolean}) {
 
     return (
-        <div className={`flex ${!isRedirect ? "w-[47%]" : ""}`}>
+        <div className={`flex ${!isRedirect ? "sm:w-[47%]" : ""}`}>
 
-            <div className={`${!isRedirect ? "w-full" : "w-[50%]"} space-y-5`}>
+            <div className={`${!isRedirect ? "w-full" : "sm:w-[50%] w-full"} space-y-5`}>
 
                 <h1 className="text-28-semibold">Cart Totals</h1>
 
