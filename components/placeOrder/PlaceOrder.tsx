@@ -18,7 +18,7 @@ import { useSession } from "next-auth/react"
 import { useEffect } from "react"
 import { Food } from "@/lib/type"
 import useCart from "@/hooks/useCart"
-import { generateCartFoodList, subTotalPrice } from "@/lib/utils"
+import { generateCartInformation } from "@/lib/utils"
 import CashMemo from "../cart/CashMemo"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "../ui/label"
@@ -61,11 +61,9 @@ export default function PlaceOrder({ foods }: { foods: Food[] }) {
 
   const { isSubmitting } = form.formState;
 
-  const { cart, isCartEmpty, cartStringArray, loading, setCart } = useCart()
+  const { cart, loading, setCart } = useCart()
 
-  const cartFoodList = generateCartFoodList(isCartEmpty, foods, cartStringArray)
-
-  const subTotal = !isCartEmpty && subTotalPrice(cart, cartFoodList as Food[], cartStringArray)
+  const {isCartEmpty, cartFoodList, subTotal} = generateCartInformation(cart, foods)
 
 
   useEffect(() => {

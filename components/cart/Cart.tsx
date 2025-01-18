@@ -2,20 +2,17 @@
 
 import ShadTable from "@/components/cart/ShadTable"
 import ShowCartEmpty from "@/components/cart/ShowCartEmpty"
-import { subTotalPrice } from "@/lib/utils";
+import {  generateCartInformation } from "@/lib/utils";
 import { Food } from "@/lib/type";
 import useCart from "@/hooks/useCart"
 import CashMemo from "./CashMemo"
-import { generateCartFoodList } from "@/lib/utils";
 import Loader from "../common/Loader";
 
 export default function Cart({ foods }: { foods: Food[] }) {
 
-    const { cart, isCartEmpty, cartStringArray, loading } = useCart()
+    const { cart, loading } = useCart()
 
-    const cartFoodList = generateCartFoodList(isCartEmpty, foods, cartStringArray)
-
-    const subTotal = !isCartEmpty && subTotalPrice(cart, cartFoodList as Food[], cartStringArray)
+    const {isCartEmpty, cartFoodList, subTotal} = generateCartInformation(cart, foods)
 
     return (
         <section className={`min-h-[82vh] py-5 ${isCartEmpty ? "flex-center" : ""}`}>
