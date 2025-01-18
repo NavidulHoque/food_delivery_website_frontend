@@ -8,7 +8,7 @@ export default function NavbarList() {
     const [selectedItem, setSelectedItem] = useState("home")
 
     return (
-        <ul className="flex-center gap-x-10">
+        <ul className="md:flex-center hidden gap-x-10">
 
             {navbarList.map((item: Item) => (
 
