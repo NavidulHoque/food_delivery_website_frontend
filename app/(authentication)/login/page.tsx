@@ -52,10 +52,8 @@ export default function Login() {
       const result = await signIn("credentials", {redirect: false, email, password })
 
       if (result?.error) {
-
-        console.log(result?.error)
         
-				throw new Error(result?.error)
+				throw new Error(result?.code)
 			} 
       
       else {

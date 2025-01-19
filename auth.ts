@@ -1,4 +1,4 @@
-import NextAuth from "next-auth"
+import NextAuth, { CredentialsSignin } from "next-auth"
 import Google from "next-auth/providers/google"
 import GitHub from "next-auth/providers/github"
 import Credentials from "next-auth/providers/credentials"
@@ -6,6 +6,13 @@ import axios from "axios"
 import { url } from "./url"
 import { AUTH_GOOGLE_ID, AUTH_GOOGLE_SECRET, AUTH_GITHUB_ID, AUTH_GITHUB_SECRET, AUTH_SECRET } from "./env"
 
+class EmailInvalidError extends CredentialsSignin {
+    code = "Email invalid, create an account first"
+}
+
+class PasswordInvalidError extends CredentialsSignin {
+    code = "Password invalid"
+}
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
 
@@ -49,8 +56,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     return response.data.user
                 }
 
-                else {
-                    throw new Error("ujala");
+                else if(response.data.message === "Email invalid, create an account first"){
+
+                    throw new EmailInvalidError()
+                }
+
+                else if(response.data.message === "Password invalid"){
+                    
+                    throw new PasswordInvalidError()
                 }
             }
         })

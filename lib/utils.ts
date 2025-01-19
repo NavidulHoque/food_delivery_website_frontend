@@ -45,5 +45,3 @@ export function handleScroll(ref: React.RefObject<HTMLDivElement | null>) {
 
   return
 }
-
-
