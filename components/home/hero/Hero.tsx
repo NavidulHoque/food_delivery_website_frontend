@@ -1,9 +1,8 @@
 import HeroButton from "./HeroButton";
 
-
 export default function Hero() {
   return (
-    <div className="relative w-full lg:h-[600px] h-[400px] bg-cover bg-center bg-no-repeat rounded-lg" style={{ backgroundImage: 'url("/hero_img.png")'}}>
+    <div className="relative w-full lg:h-[600px] h-[400px] bg-cover bg-center bg-no-repeat rounded-lg" style={{ backgroundImage: 'url("/hero_img.png")' }}>
 
       <div className="absolute top-[150px] sm:left-[80px] left-[40px] min-[1150px]:w-full w-[70%] text-white space-y-6">
 
@@ -14,7 +13,7 @@ export default function Hero() {
         <HeroButton />
 
       </div>
-      
+
     </div>
   )
 }

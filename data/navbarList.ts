@@ -4,9 +4,6 @@ export interface Item{
 
 export const navbarList: Item[] = [
     {
-        label: "home"
-    },
-    {
         label: "menu"
     },
     {

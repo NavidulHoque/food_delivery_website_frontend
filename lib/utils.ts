@@ -30,4 +30,20 @@ export function generateCartInformation(cart: { [key: string]: number }, foods: 
   return { isCartEmpty, cartFoodList, subTotal }
 }
 
+export function handleScroll(ref: React.RefObject<HTMLDivElement | null>) {
+
+  if (ref.current) {
+
+    setTimeout(() => {
+
+      if (ref.current) {
+        ref.current.scrollIntoView({ behavior: 'smooth' })
+      }
+
+    }, 0)
+  }
+
+  return
+}
+
 
