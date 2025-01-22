@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NotFound() {
     return (
-        <section className="min-h-[82vh] py-5 flex-column items-center justify-center gap-y-3">
+        <section className="not-found_main-section">
 
             <Heading />
             <Link 

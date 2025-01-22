@@ -43,6 +43,10 @@
   .hover-scale{
     @apply hover:scale-105 transition-all duration-300;
   }
+
+  .not-found_main-section{
+    @apply min-h-[82vh] py-5 flex-column items-center justify-center gap-y-3;
+  }
 }
 
 @keyframes fadeIn {
