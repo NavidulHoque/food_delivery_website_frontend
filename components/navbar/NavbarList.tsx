@@ -4,10 +4,11 @@ import { Item, navbarList } from "@/data/navbarList"
 import useRefCustom from "@/hooks/useRefCustom"
 import { handleScroll } from "@/lib/utils"
 
+
 export default function NavbarList() {
 
     const { menuRef, contactRef} = useRefCustom()
-
+    
     const handleRef = (label: string) => {
 
         if (label === "menu") {

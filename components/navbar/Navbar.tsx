@@ -3,6 +3,7 @@ import ShoppingCart from "./ShoppingCart";
 import { FaCartShopping } from "react-icons/fa6";
 import UserInfo from "./UserInfo";
 import NavbarList from "./NavbarList";
+import NavbarListWrapper from "./NavbarListWrapper";
 
 export default async function Navbar() {
 
@@ -11,7 +12,11 @@ export default async function Navbar() {
 
       <Link href="/" className="text-36-bold text-tomato">Tomato.</Link>
 
-      <NavbarList />
+      <NavbarListWrapper>
+
+        <NavbarList />
+        
+      </NavbarListWrapper>
 
       <div className="flex-center gap-x-6">
 
