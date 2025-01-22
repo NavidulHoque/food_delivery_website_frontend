@@ -11,7 +11,7 @@ export default async function MyOrders() {
     
     const session = await auth();
 
-    const { data: { orders } } = await axios.get(url + `/order/userOrders/${session?.user.id}`);
+    const { data: { orders } } = await axios.get(url + `/order/userOrders/${session?.user.id}/user`);
 
     return (
         <>

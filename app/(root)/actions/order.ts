@@ -24,7 +24,7 @@ export async function createOrder({
     userID: string;
 }) {
 
-    await axios.post(url + "/order/place", {
+    await axios.post(url + "/order/place/user", {
         foodItems,
         totalPrice,
         customerDetails,
