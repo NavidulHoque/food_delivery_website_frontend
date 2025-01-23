@@ -4,11 +4,17 @@ import { url } from "@/url";
 import axios from "axios";
 import RealTimeCommunicationOrder from "../../../components/myOrders/RealTimeCommunicationOrder";
 import { OrderObj } from "@/lib/type";
+import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 
+export const metadata: Metadata = {
+    title: "My Orders - Tomato",
+    description: "Check your orders from this page",
+};
+
 export default async function MyOrders() {
-    
+
     const session = await auth();
 
     const { data: { orders } } = await axios.get(url + `/order/userOrders/${session?.user.id}/user`);
@@ -30,7 +36,7 @@ export default async function MyOrders() {
                         ))}
                     </>
                 )}
-                
+
             </section>
         </>
     )
