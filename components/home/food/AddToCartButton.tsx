@@ -7,13 +7,41 @@ import removeIconRed from "@/public/remove_icon_red.png"
 import useCart from "@/hooks/useCart"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
+import { useToast } from "@/hooks/use-toast"
 
 
-export default function AddToCartButton({ foodName }: { foodName: string}) {
+export default function AddToCartButton({ foodName }: { foodName: string }) {
 
     const { cart, addToCart, removeFromCart } = useCart()
     const { status } = useSession()
     const router = useRouter()
+    const { toast } = useToast()
+
+    const handleAddToCart = () => {
+
+        if (status === "authenticated") {
+            addToCart(foodName)
+
+            toast({
+                variant: "success",
+                description: "Food added to the cart"
+            })
+        }
+
+        else {
+            router.push("/login")
+        }
+    }
+
+    const handleRemoveFromCart = () => {
+
+        removeFromCart(foodName)
+
+        toast({
+            variant: "success",
+            description: "Food removed from the cart"
+        })
+    }
 
     const showQuantity = (cart[foodName] && status === "authenticated") ? (
 
@@ -24,7 +52,7 @@ export default function AddToCartButton({ foodName }: { foodName: string}) {
                 alt="icon"
                 quality={100}
                 className="cursor-pointer"
-                onClick={() => removeFromCart(foodName)}
+                onClick={handleRemoveFromCart}
             />
 
             <span>{cart[foodName]}</span>
@@ -34,7 +62,7 @@ export default function AddToCartButton({ foodName }: { foodName: string}) {
                 alt="icon"
                 quality={100}
                 className="cursor-pointer"
-                onClick={() => addToCart(foodName)}
+                onClick={handleAddToCart}
             />
 
         </div>
@@ -45,7 +73,7 @@ export default function AddToCartButton({ foodName }: { foodName: string}) {
             alt="icon"
             quality={100}
             className="absolute bottom-1/2 right-[10px] cursor-pointer"
-            onClick={() => status === "authenticated" ? addToCart(foodName) : router.push("/login")}
+            onClick={handleAddToCart}
         />
     )
 
