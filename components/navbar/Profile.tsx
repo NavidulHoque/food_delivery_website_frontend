@@ -4,9 +4,9 @@ import Image from "next/image"
 import { useState } from "react"
 import { BsBag } from "react-icons/bs";
 import logoutIcon from "@/public/logout_icon.png"
-import { logout } from "@/app/(root)/actions/auth";
 import useCart from "@/hooks/useCart";
 import Link from "next/link";
+import { signOut } from "next-auth/react"
 
 export default function Profile({ children }: Readonly<{ children: React.ReactNode }>) {
 
@@ -18,7 +18,7 @@ export default function Profile({ children }: Readonly<{ children: React.ReactNo
 
     setLoading(true)
     setCart({})
-    await logout()
+    signOut()
   }
 
   return (
