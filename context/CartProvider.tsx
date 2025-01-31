@@ -49,16 +49,6 @@ export default function CartProvider({ children }: { children: React.ReactNode }
     const updateBackendAndSession = async (cart: { [key: string]: number }) => {
 
         await updateCartBackend(data?.user.id as string, cart)
-
-        // const newUserSession = {
-        //     email: data?.user.email,
-        //     username: data?.user.username,
-        //     photo: data?.user.photo,
-        //     provider: data?.user.provider,
-        //     cart
-        // }
-
-        // await update(newUserSession);
     }
 
 

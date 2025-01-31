@@ -99,14 +99,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 token.trigger = "signIn"
             }
 
-            // else if (trigger === "update") {
-            //     // session contains the updated data sent from client
-            //     // You can update the token here
-
-            //     token.user = session
-            //     token.trigger = "update"
-            // }
-
             return token
         },
 
