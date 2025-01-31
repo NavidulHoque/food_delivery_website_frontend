@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from 'next/font/google';
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster"
-import SessionProviderWrapper from "./(root)/SessionProvider";
+import SessionProviderWrapper from "./SessionProviderWrapper";
 
 
 const outfit = Outfit({

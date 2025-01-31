@@ -24,9 +24,9 @@ export default function CartProvider({ children }: { children: React.ReactNode }
     const { data, status } = useSession()
     const { toast } = useToast()
 
-    // console.log("cart", cart)
-    // console.log("data", data)
-    // console.log("status", status)
+    console.log("cart", cart)
+    console.log("data", data)
+    console.log("status", status)
     
 
     useEffect(() => {

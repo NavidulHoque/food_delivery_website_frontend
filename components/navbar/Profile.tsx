@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { BsBag } from "react-icons/bs";
 import logoutIcon from "@/public/logout_icon.png"
-import { logout } from "@/app/(authentication)/actions/auth";
+import { logout } from "@/app/(root)/actions/auth";
 import useCart from "@/hooks/useCart";
 import Link from "next/link";
 
