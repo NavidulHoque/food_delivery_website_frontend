@@ -45,3 +45,7 @@ export function handleScroll(ref: React.RefObject<HTMLDivElement | null>) {
 
   return
 }
+
+export async function delay() {
+  return new Promise((resolve) => setTimeout(resolve, 20))
+}

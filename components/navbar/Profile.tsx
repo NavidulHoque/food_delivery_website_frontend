@@ -18,7 +18,7 @@ export default function Profile({ children }: Readonly<{ children: React.ReactNo
 
     setLoading(true)
     setCart({})
-    signOut()
+    signOut({redirectTo: "/"})
   }
 
   return (
